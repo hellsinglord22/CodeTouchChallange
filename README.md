@@ -4,9 +4,9 @@
 1. [Install Vagrant](#install-vagrant)
 2. [Install VM Box](#install-vm-box)
 3. [Install GIT](#install-git)
-4. [Run Vagrant](run-vagrant)
-5. [Install Project Dependencies](install-project-dependencies)
-6. [Run Project](run-project)
+4. [Run Vagrant](#run-vagrant)
+5. [Install Project Dependencies](#install-project-dependencies)
+6. [Run Project](#run-project)
 
 ---------
 
