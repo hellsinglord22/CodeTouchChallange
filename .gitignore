@@ -1,6 +1,9 @@
 #VM
 .vagrant
 
+#visual studio code
+.vscode
+
 # Logs
 logs
 *.log
