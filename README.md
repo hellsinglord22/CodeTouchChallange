@@ -6,7 +6,9 @@
 3. [Install GIT](#install-git)
 4. [Run Vagrant](#run-vagrant)
 5. [Install Project Dependencies](#install-project-dependencies)
-6. [Run Project](#run-project)
+6. <div Run="" Project="">
+  <div id="run-project"></div>
+</div>
 
 ---------
 
