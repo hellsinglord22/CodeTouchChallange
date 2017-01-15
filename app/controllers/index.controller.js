@@ -3,5 +3,5 @@ module.exports = {
 }; 
 
 function view(request, response){
-	response.send('index'); 
+	response.render('pages/index', {title: 'index'}); 
 }
