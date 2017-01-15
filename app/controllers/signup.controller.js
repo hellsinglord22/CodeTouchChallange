@@ -1,11 +1,17 @@
 const User = require('../models/user'); 
 
 module.exports = {
-	signUserUp: signUserUp,
+	signup: signup,
+	view: view
+	
 }
 
 
-function signUserUp(request, response) {
+function signup(request, response) {
 	response.send(request.body); 
+}
+
+function view(request, response){
+	response.send('signup'); 
 }
 

@@ -29,7 +29,6 @@ const _users = [
 // render seeder(s) page //
 function seed(request, response){
   User.remove(); 
-  let _result = []; 
 
   for (user of _users){
     new User(user) 
