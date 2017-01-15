@@ -12,6 +12,6 @@ function signup(request, response) {
 }
 
 function view(request, response){
-	response.send('signup'); 
+	response.render('pages/signup', {title: 'signup'}); 
 }
 

@@ -28,12 +28,13 @@ const _users = [
 
 // render seeder(s) page //
 function seed(request, response){
-  User.remove(); 
+  User.remove({}); 
 
   for (user of _users){
     new User(user) 
       .save()
       .then()
       .catch(console.error); 
- }
+  }
+  response.render('pages/seed', {title: 'seed', users: _users})
 }

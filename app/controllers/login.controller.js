@@ -5,10 +5,9 @@ module.exports = {
 
 
 function view(request, response){
-	response.send('login'); 	
+	response.render('pages/login', {title: 'login'}); 	
 
 }
 
 function login(request, response){
-
 }

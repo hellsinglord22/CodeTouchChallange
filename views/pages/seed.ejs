@@ -1,0 +1,22 @@
+<%- include('header') -%>
+<%- include('navbar') -%>
+<h1>List Of Seeded Users: </h1>
+
+<table class="table table-hover table-bordered table-bordered">
+  <tr>
+    <th>email</th> 
+    <th>password</th> 
+  </tr>
+
+  <% for(var i= 0; i < users.length; i++) { %>
+    <tr>
+      <td><%= users[i].email %></td>
+      <td><%= users[i].password %></td>
+    </tr>
+  <% } %>
+
+  
+</table>
+
+
+<%- include('footer') -%>

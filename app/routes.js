@@ -4,7 +4,9 @@ const express          = require('express'),
       signupController = require('./controllers/signup.controller'),
       loginController  = require('./controllers/login.controller'),
       logoutController = require('./controllers/logout.controller'),
-      indexController  = require('./controllers/index.controller'); 
+      indexController  = require('./controllers/index.controller');
+
+
 
 // Sign Up Route(s)
 router.get('/signup', signupController.view); 
@@ -12,7 +14,8 @@ router.post('/signup', signupController.signup);
 
 // Log In Route(s)
 router.get('/login', loginController.view)
-router.post('/login', loginController.login)
+// router.post('/login', loginController.login)
+
 
 
 // Log Out Route(s)
