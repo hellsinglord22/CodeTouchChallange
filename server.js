@@ -15,6 +15,7 @@ mongoose.connect(database.url, (error) => {
 }); 
 
 express()
+	.set('view engine', 'ejs')
 	.use(bodyParser.json())
 	.use(bodyParser.urlencoded({extended: false}))
 	.use(express.static(path.join(__dirname, 'public')))
