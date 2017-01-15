@@ -1,10 +1,10 @@
 const express = require('express'),
       router  = express.Router(), 
-      signupController = require('./controllers/signup.controller');
+      signupController = require('./controllers/signup.controller')
+      usersController  = require('./controllers/users.controller'); 
 
 // Sign Up Route(s)
 router.post('/signup', signupController.signUserUp); 
-router.get('/signup', signupController.showSignUpForm); 
 
 // Log In Route(s)
 
@@ -13,6 +13,10 @@ router.get('/signup', signupController.showSignUpForm);
 
 
 // Index Route(s)
+
+
+// Users Route(s)
+router.get('/users/seed', usersController.seed); 
 
 
 module.exports = router; 
