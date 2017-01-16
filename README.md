@@ -6,9 +6,7 @@
 3. [Install GIT](#install-git)
 4. [Run Vagrant](#run-vagrant)
 5. [Install Project Dependencies](#install-project-dependencies)
-6. <div Run="" Project="">
-  <div id="run-project"></div>
-</div>
+6. [Projec Routes](#project-routes) 
 
 ---------
 
@@ -43,6 +41,21 @@ windows host file path: C:\Windows\System32\drivers\etc
 mac/linux host file path: /etc/hosts
 ```
 * I need to mention that both files require super user priviliage to edit . 
+
+### Project Routes
+| Route                	| method 	| Description                           	|
+|----------------------	|--------	|---------------------------------------	|
+| signup               	| get    	| View signup page                      	|
+| signup               	| post   	| Sign user up                          	|
+| login                	| get    	| View login page                       	|
+| login                	| post   	| Log user in                           	|
+| logout               	| get    	| Log user out                          	|
+| index                	| get    	| Go to home page                       	|
+| users                	| get    	| Get all user                          	|
+| users/seed           	| get    	| Delete then seed database             	|
+| profile              	| get    	| Check if user is authenticated or not 	|
+| auth/google          	| get    	| Authenticate using google OAuth2      	|
+| auth/google/callback 	| get    	| Callback From Google                  	|
 
 
 
