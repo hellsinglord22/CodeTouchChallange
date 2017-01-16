@@ -8,7 +8,7 @@ module.exports = {
 
 
 function view(request, response){
-	response.render('pages/login', {title: 'login'}); 	
+	response.render('pages/login', {title: 'login', authenticated: false}); 	
 }
 
 function login(request, response, next){

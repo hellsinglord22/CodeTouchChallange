@@ -10,12 +10,13 @@
         <div>
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="/users/seed">seed</a></li>
                 <li><a href="/users">users</a></li>
+                <li><a href="/profile">Profile</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-middle">
-                <li><a href="/logout">Log out</a></li>
-            </ul>
+
+            <% if (authenticated) { %>
+                <%- include('./components/navbar.logout.button.ejs') -%>
+            <% } %>
       
     </div>
 </nav>

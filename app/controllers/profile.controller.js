@@ -4,9 +4,13 @@ module.exports = {
 }
 
 function view(request, response){
-	response.send({
+
+	var authStatus = {
       session: request.session,
       user: request.user,
       authenticated: request.isAuthenticated(),
-    });
+    };
+
+	response.render('pages/profile', 
+		{title: 'profile', authenticated: request.isAuthenticated(), authStatus: authStatus})
 }

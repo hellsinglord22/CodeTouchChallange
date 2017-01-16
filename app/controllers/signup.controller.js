@@ -9,7 +9,7 @@ module.exports = {
 }
 
 function view(request, response){
-	response.render('pages/signup', {title: 'signup'}); 
+	response.render('pages/signup', {title: 'signup', authenticated: false}); 
 }
 
 function signup(request, response, next){

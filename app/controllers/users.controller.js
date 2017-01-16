@@ -37,7 +37,7 @@ function seed(request, response){
         .then()
         .catch(console.error); 
     }
-    response.render('pages/seed', {title: 'seed', users: _users})
+    response.render('pages/seed', {title: 'seed', users: _users, authenticated: false})
   }).catch(console.error); 
 
 }
