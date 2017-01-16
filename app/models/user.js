@@ -7,6 +7,11 @@ const userSchema = new Schema({
 		username: String, 
 		email: String, 
 		password: String
+	},
+	google: {
+		id: String,
+		token: String,
+		name: String
 	}
 });
 

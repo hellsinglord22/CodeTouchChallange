@@ -1,11 +1,12 @@
-const express           = require('express'),
-      router            = express.Router(), 
-      usersController   = require('./controllers/users.controller'),
-      signupController  = require('./controllers/signup.controller'),
-      loginController   = require('./controllers/login.controller'),
-      logoutController  = require('./controllers/logout.controller'),
-      indexController   = require('./controllers/index.controller'),
-      profileController = require('./controllers/profile.controller');
+const express              = require('express'),
+      router               = express.Router(), 
+      usersController      = require('./controllers/users.controller'),
+      signupController     = require('./controllers/signup.controller'),
+      loginController      = require('./controllers/login.controller'),
+      logoutController     = require('./controllers/logout.controller'),
+      indexController      = require('./controllers/index.controller'),
+      profileController    = require('./controllers/profile.controller'), 
+      googleAuthController = require('./controllers/google.auth.controller'); 
 
 // Sign Up Route(s)
 router.get('/signup', signupController.view); 
@@ -27,5 +28,10 @@ router.get('/users', usersController.show);
 
 // Profile Route(s)
 router.get('/profile', profileController.view)
+
+router.get('/auth/google', googleAuthController.authenticate); 
+router.get('/auth/google/callback', googleAuthController.authorize, function(request, response){
+	response.redirect('/profile'); 
+})
 
 module.exports = router; 
