@@ -1,7 +1,8 @@
 const User = require('../models/user');
 
 module.exports = {
-  seed: seed 
+  seed: seed,
+  show: show
 };
 
 
@@ -28,13 +29,24 @@ const _users = [
 
 // render seeder(s) page //
 function seed(request, response){
-  User.remove({}); 
+  User.remove({})
+  .then(() => {
+    for (user of _users){
+      new User(user) 
+        .save()
+        .then()
+        .catch(console.error); 
+    }
+    response.render('pages/seed', {title: 'seed', users: _users})
+  }).catch(console.error); 
 
-  for (user of _users){
-    new User(user) 
-      .save()
-      .then()
-      .catch(console.error); 
-  }
-  response.render('pages/seed', {title: 'seed', users: _users})
+}
+
+
+function show(request, response){
+  User.find({})
+    .then((users) => {
+      response.send(users);
+    })
+    .catch(console.error)
 }

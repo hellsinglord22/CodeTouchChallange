@@ -28,8 +28,4 @@ express()
   .use(passport.initialize())
   .use(passport.session())
 	.use(routes)
-	.post('/login', passport.authenticate("local-login", {
-		successRedirect: "/profile",
-		failureRedirect: "/signup"
-	})) 
 	.listen(3000); 
