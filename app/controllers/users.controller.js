@@ -32,10 +32,10 @@ function seed(request, response){
   User.remove({})
   .then(() => {
     for (user of _users){
-      new User(user) 
-        .save()
-        .then()
-        .catch(console.error); 
+      var newUser = new User(); 
+      newUser.local.email = user.email; 
+      newUser.local.password = user.password; 
+      newUser.save();
     }
     response.render('pages/seed', {title: 'seed', users: _users, authenticated: false})
   }).catch(console.error); 

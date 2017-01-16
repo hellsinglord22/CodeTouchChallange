@@ -6,54 +6,51 @@ passport.use('local-login', new LocalStrategy({
 	usernameField: 'email', 
 	passwordField: 'password',
 	passReqToCallback: true
-},
-function(request, email, password, done){
-	User.findOne({email: email},function(error, user){
-		if(error){
-			return done(error); 
-		}
+}, localAuthenticate));
 
-		if(!user){
-				return done(null, false, 'Incorrect username'); 
-		}
+function localAuthenticate(request, email, password, done){
 
-		if (user.password != password){
-			return done(null, false, 'Incorrect password');
-		}
+	User.findOne({'local.email': email})
+		.then((user) => {
+			if (user){
+				if (user.local.password != password){
+					return done(null, false, 'Incorrect password'); 
+				}
+				return done(null, user); 
+			}
+			if (!user){
+				return done(null, false, 'Incorrect user');
+			}
+		})
+		.catch(done); 
+}
 
-		console.log('the value of the user: ', user); 
-		done(null, user); 
-	})
-}));
 
 passport.use('local-register', new LocalStrategy({
 	usernameField: 'email', 
 	passwordField: 'password', 
 	passReqToCallback: true
-}, function(request, email, password, done)	{
-	if (email == ''){
-		return done(null, false, 'You Need To Provide An Email'); 	
-	}
+}, localAuthrize));
 
-	User.findOne({email: email}, function(error, user){
-		if (error) {
-			return done(error); 
-		}
-		if(user){
-			return done(null, false, 'User already exict');
-		}	
-		if (!user){
-			const newUser = new User({
-				email: email, 
-				password: password
-			});
-			newUser.save(function(error, user){
-				return done(null, user); 
-			}); 
-		}
-	});
-
-}));
+function localAuthrize(request, email, password, done){
+	User.findOne({'local.email': email})
+		.then((user) => {
+			if(user){
+				return done(null, false, 'User Already exict'); 
+			}
+			if (!user){
+				const newUser = new User(); 
+				newUser.local.email = email; 
+				newUser.local.password = password; 
+				newUser.save()
+					.then((user) => {
+						return done(null, user); 
+					})
+					.catch(done);
+			}
+		})
+		.catch(done)
+}
 
 
 // For Session // 
@@ -62,7 +59,7 @@ passport.serializeUser(function(user, done) {
 })
 
 passport.deserializeUser(function(id, done) {
-	User.find({_id: id})
+	User.findById(id)
 		.then((user) => {
 			done(null, user); 
 		}, done);
