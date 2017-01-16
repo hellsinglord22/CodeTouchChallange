@@ -3,5 +3,6 @@ module.exports = {
 }; 
 
 function logout(request, response){
-	response.send('logout page'); 
+	request.session.destroy(); 
+	response.redirect('/login');
 }
