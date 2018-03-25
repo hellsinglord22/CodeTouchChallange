@@ -13,7 +13,7 @@
 ### Install vagrant
 * Go to vagrant [downloads page](https://www.vagrantup.com/downloads.html) and choose an installer . 
 
-###Install VM Box
+### Install VM Box
 * Vagrant need a provider, i recommend Virtual Box since it needs no configuration, here it's [download page](https://www.virtualbox.org/wiki/Downloads).
 * Note you can use other VM Boxes like VMWare but you will need to espicify your [provider](https://www.vagrantup.com/docs/providers/) in your `Vagrent`. 
 
